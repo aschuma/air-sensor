@@ -1,3 +1,6 @@
+/.idea
+/sensor.iml
+
 # Logs
 logs
 *.log
