@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo 'NOT YET'",
     "commit": "git-cz",
-    "semantic-release": "semantic-release",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
