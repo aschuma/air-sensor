@@ -1,14 +1,17 @@
 {
   "name": "air-sensor",
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo 'NOT YET'",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/aschuma/air-sensor.git"
+    "url": "https://github.com/aschuma/air-sensor.git"
   },
   "keywords": [
     "feinstaub",
@@ -30,5 +33,16 @@
     "JSONPath": "0.11.2",
     "lodash": "4.17.4",
     "node-fetch": "1.7.3"
+  },
+  "devDependencies": {
+    "chai": "4.1.2",
+    "commitizen": "2.9.6",
+    "cz-conventional-changelog": "2.1.0",
+    "mocha": "5.0.0",
+    "semantic-release": "^12.4.1",
+    "travis-deploy-once": "^4.3.4"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
