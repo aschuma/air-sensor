@@ -3,15 +3,14 @@ cache:
   directories:
     - ~/.npm
 notifications:
-  email: true
+  email: false
 node_js:
   - '9'
-before_script:
-  - npm prune
-script:
-  - npm run test
+  - '8'
+  - '6'
+  - '4'
 after_success:
-  - npm run semantic-release
+  - npm run travis-deploy-once "npm run semantic-release"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/

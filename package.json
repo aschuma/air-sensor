@@ -1,6 +1,6 @@
 {
   "name": "air-sensor",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-development",
   "description": "Lib for looking up particulate-matter sensors of the luftdaten network",
   "main": "src/index.js",
   "scripts": {
