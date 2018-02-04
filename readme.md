@@ -1,6 +1,6 @@
 # air-sensor 
 
-Lookups a single particulate-matter sensors of the [luftdaten network](http://luftdaten.info/en/home-en). 
+Looks up a single particulate-matter sensors of the [luftdaten network](http://luftdaten.info/en/home-en). 
 You may zoom in the [map](http://maps.luftdaten.info/#2/0.0/0.0) to obtain the id of a sensor next to you. 
 
 ```
@@ -12,7 +12,7 @@ sensor.lookup( sensorId ).then(
 );
 ```
 
-````
+```
 { 
    id: 9322,
    location: { 
