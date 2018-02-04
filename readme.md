@@ -3,6 +3,8 @@
 [![travis build](https://img.shields.io/travis/aschuma/air-sensor.svg?style=flat-square)](https://travis-ci.org/aschuma/air-sensor)
 [![version](https://img.shields.io/npm/v/air-sensor.svg?style=flat-square)](http://npm.im/air-sensor)
 [![downloads](https://img.shields.io/npm/dm/air-sensor.svg?style=flat-square)](http://npm-stat.com/charts.html?package=air-sensor&from=2018-01-04)
+[![dependencies](https://img.shields.io/david/aschuma/air-sensor.svg?style=flat-square)](https://david-dm.org/aschuma/air-sensor)
+[![dev dependencies](https://img.shields.io/david/dev/aschuma/air-sensor.svg?style=flat-square)](https://david-dm.org/aschuma/air-sensor#info=devDependencies)
 [![MIT License](https://img.shields.io/npm/l/air-sensor.svg?style=flat-square)](http://opensource.org/licenses/MIT)
 
 Looks up a single particulate-matter sensors of the [luftdaten network](http://luftdaten.info/en/home-en). 
