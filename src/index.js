@@ -8,7 +8,7 @@ const fetchSensorData = (sensorID) => {
 
     const order = (data) => _.orderBy(data, "timestamp", "asc");
 
-    const last = (data, expr) => _.last(jpath({json: data, path: expr});
+    const last = (data, expr) => _.last(jpath({json: data, path: expr}));
 
     const lastFloat = (data, expr) => parseFloat(last(data, expr));
 
@@ -22,8 +22,8 @@ const fetchSensorData = (sensorID) => {
                 latitude: lastFloat(data, "$..location.latitude"),
                 altitude: lastFloat(data, "$..location.altitude"),
             },
-            PM1: lastFloat(data, "$..sensordatavalues[?(@.value_type=='P1')]/.value"),
-            PM2: lastFloat(data, "$..sensordatavalues[?(@.value_type=='P2')]/.value"),
+            PM10: lastFloat(data, "$..sensordatavalues[?(@.value_type=='P1')]/.value"),
+            PM2_5: lastFloat(data, "$..sensordatavalues[?(@.value_type=='P2')]/.value"),
             timestamp: last(data, "$..timestamp")
         }));
 }
