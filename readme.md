@@ -26,8 +26,7 @@ In case the sensor is a PM sensor the subsequent structure is returned:
    type: 'PM'
    location: { 
       longitude: 9.228, 
-      latitude: 48.804, 
-      altitude: 234.1 
+      latitude: 48.804
    },
    PM10: 6.4,
    PM2_5: 5.9,
@@ -43,11 +42,22 @@ In case the sensor is a temperature (celsius) sensor the subsequent structure is
    type: 'temperature',
    location: { 
       longitude: 9.228, 
-      latitude: 48.804, 
-      altitude: 234.1 
+      latitude: 48.804
    },
    temperature: 1.9,
-   humidity: 85.7 }
+   humidity: 85.7,
    timestamp: '2018-02-04 14:38:08' 
 }
 ```
+
+There is also a method returning a 24h average value. The output format remains the same as above.
+
+```
+var sensor = require("air-sensor");
+
+var sensorId = 9322;
+sensor.lookup24hAvg( sensorId ).then( 
+   data => console.log( data ) 
+);
+```
+
