@@ -19,9 +19,11 @@ sensor.lookup( sensorId ).then(
 );
 ```
 
+In case the sensor is a PM sensor the subsequent structure is returned: 
 ```
 { 
    id: 9322,
+   type: 'PM'
    location: { 
       longitude: 9.228, 
       latitude: 48.804, 
@@ -29,6 +31,23 @@ sensor.lookup( sensorId ).then(
    },
    PM10: 6.4,
    PM2_5: 5.9,
+   timestamp: '2018-02-04 14:38:08' 
+}
+```
+
+
+In case the sensor is a temperature (celsius) sensor the subsequent structure is returned: 
+```
+{ 
+   id: 9322,
+   type: 'temperature',
+   location: { 
+      longitude: 9.228, 
+      latitude: 48.804, 
+      altitude: 234.1 
+   },
+   temperature: 1.9,
+   humidity: 85.7 }
    timestamp: '2018-02-04 14:38:08' 
 }
 ```
