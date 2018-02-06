@@ -4,6 +4,7 @@ const _ = require("lodash");
 
 "use strict";
 
+
 const order = (data) => _.orderBy(data, "timestamp", "asc");
 
 const reverse = (data) => _.reverse(data);
