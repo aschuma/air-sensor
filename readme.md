@@ -61,3 +61,16 @@ sensor.lookup24hAvg( sensorId ).then(
 );
 ```
 
+In addition its also possible to fetch all current sensor data of an area. This will return an array of objects having the same structure as above.
+
+```
+var sensor = require("air-sensor");
+
+var longitude = 49.1355; 
+var latitude = 9.228;
+var distance = 0.5;
+
+sensor.lookupArea(longitude,latitude,distance).
+   data => console.log( data ) 
+);
+```

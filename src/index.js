@@ -6,6 +6,8 @@ const _ = require("lodash");
 
 const order = (data) => _.orderBy(data, "timestamp", "asc");
 
+const reverse = (data) => _.reverse(data);
+
 const filter = (sensorID) => (data) => _.filter(data, (item) => item.sensor.id === sensorID);
 
 const extract = (data, expr) => _.last(jpath({json: data, path: expr}));
@@ -16,6 +18,7 @@ const mapData = (sensorID) => (data) => {
         return {};
     } else {
 
+        const id = extract(data, "$..sensor.id");
         const timestamp = extract(data, "$..timestamp");
         const pm10 = extract(data, "$..sensordatavalues[?(@.value_type=='P1')]/.value");
         const pm2_5 = extract(data, "$..sensordatavalues[?(@.value_type=='P2')]/.value");
@@ -23,7 +26,7 @@ const mapData = (sensorID) => (data) => {
         const humidity = extract(data, "$..sensordatavalues[?(@.value_type=='humidity')]/.value");
 
         const answer = {
-            id: sensorID,
+            id: sensorID || id,
             location: {
                 longitude: parseFloat(extract(data, "$..location.longitude")),
                 latitude: parseFloat(extract(data, "$..location.latitude"))
@@ -59,7 +62,16 @@ const fetchSensorDataAvg = (sensorID) => fetch("http://api.luftdaten.info/static
     .then(order)
     .then(mapData(sensorID));
 
+const fetchSensorDataOfArea = (longitude, latitude, distance) => fetch("http://api.luftdaten.info/v1/filter/area=" + longitude + "," + latitude + "," + distance)
+    .then((res) => res.json())
+    .then(order)
+    .then(reverse)
+    .then((data) => _.uniqBy(data, (it) => it.sensor.id))
+    .then((data) => _.map(data, (value) => [value]))
+    .then((data) => _.map(data, mapData()));
+
 module.exports = {
     lookup: fetchSensorData,
+    lookupArea: fetchSensorDataOfArea,
     lookup24hAvg: fetchSensorDataAvg
 };
