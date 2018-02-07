@@ -15,7 +15,7 @@ const extract = (data, expr) => _.last(jpath({json: data, path: expr}));
 
 const mapData = (data) => {
 
-    if (data.length === 0) {
+    if (data === undefined || data.length === 0) {
         return {};
     } else {
 
