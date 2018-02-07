@@ -65,12 +65,12 @@ In addition its also possible to fetch all current sensor data of an area. This 
 
 ```
 var sensor = require("air-sensor");
+ 
+var latitude = 49.1355;
+var longitude = 9.228;
+var distance = 1.1;
 
-var longitude = 49.1355; 
-var latitude = 9.228;
-var distance = 0.5;
-
-sensor.lookupArea(longitude,latitude,distance).
+sensor.lookupArea(latitude,longitude,distance).then(
    data => console.log( data ) 
 );
 ```
