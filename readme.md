@@ -73,4 +73,6 @@ var distance = 1.1;
 sensor.lookupArea(latitude,longitude,distance).then(
    data => console.log( data ) 
 );
+
+
 ```
