@@ -58,14 +58,14 @@ const fetchSensorData = (sensorID) => fetch("http://api.luftdaten.info/v1/sensor
     .then(_.last)
     .then(mapData);
 
-const fetchSensorData1hAvg = (sensorID) => fetch("http://api.luftdaten.info/static/v2/data.1h.json ")
+const fetchSensorData1hAvg = (sensorID) => fetch("http://api.luftdaten.info/static/v2/data.1h.json")
     .then((res) => res.json())
     .then(filter(sensorID))
     .then(order)
     .then(_.last)
     .then(mapData);
 
-const fetchSensorData24hAvg = (sensorID) => fetch("http://api.luftdaten.info/static/v2/data.24h.json ")
+const fetchSensorData24hAvg = (sensorID) => fetch("http://api.luftdaten.info/static/v2/data.24h.json")
     .then((res) => res.json())
     .then(filter(sensorID))
     .then(order)
