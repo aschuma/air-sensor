@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const jpath = require("JSONPath");
+const { JSONPath } = require("jsonpath-plus");
 const _ = require("lodash");
 
 "use strict";
@@ -11,7 +11,7 @@ const reverse = (data) => _.reverse(data);
 
 const filter = (sensorID) => (data) => _.filter(data, (item) => item.sensor.id === sensorID);
 
-const extract = (data, expr) => _.last(jpath({json: data, path: expr}));
+const extract = (data, expr) => _.last(JSONPath({json: data, path: expr}));
 
 const mapData = (data) => {
 
@@ -52,20 +52,20 @@ const mapData = (data) => {
     }
 };
 
-const fetchSensorData = (sensorID) => fetch("http://api.luftdaten.info/v1/sensor/" + sensorID + "/")
+const fetchSensorData = (sensorID) => fetch("https://data.sensor.community/airrohr/v1/sensor/" + sensorID + "/")
     .then((res) => res.json())
     .then(order)
     .then(_.last)
     .then(mapData);
 
-const fetchSensorData1hAvg = (sensorID) => fetch("http://api.luftdaten.info/static/v2/data.1h.json")
+const fetchSensorData1hAvg = (sensorID) => fetch("https://data.sensor.community/static/v2/data.1h.json")
     .then((res) => res.json())
     .then(filter(sensorID))
     .then(order)
     .then(_.last)
     .then(mapData);
 
-const fetchSensorData24hAvg = (sensorID) => fetch("http://api.luftdaten.info/static/v2/data.24h.json")
+const fetchSensorData24hAvg = (sensorID) => fetch("https://data.sensor.community/static/v2/data.24h.json")
     .then((res) => res.json())
     .then(filter(sensorID))
     .then(order)
