@@ -72,7 +72,7 @@ const fetchSensorData24hAvg = (sensorID) => fetch("https://data.sensor.community
     .then(_.last)
     .then(mapData);
 
-const fetchSensorDataOfArea = (latitude, longitude, distance) => fetch("http://api.luftdaten.info/v1/filter/area=" + latitude + "," + longitude + "," + distance)
+const fetchSensorDataOfArea = (latitude, longitude, distance) => fetch("https://data.sensor.community/airrohr/v1/filter/area=" + latitude + "," + longitude + "," + distance)
     .then((res) => res.json())
     .then(order)
     .then(reverse)
