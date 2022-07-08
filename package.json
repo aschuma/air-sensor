@@ -11,10 +11,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "test": "echo 'NOT YET' && exit 0",
-    "commit": "git-cz",
-    "semantic-release": "semantic-release",
-    "travis-deploy-once": "travis-deploy-once"
+    "test": "echo 'NOT YET' && exit 0"
   },
   "keywords": [
     "feinstaub",
