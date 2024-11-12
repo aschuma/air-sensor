@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/aschuma/air-sensor#readme",
   "dependencies": {
-    "jsonpath-plus": "7.0.0",
+    "jsonpath-plus": "10.0.7",
     "lodash": "4.17.21",
     "node-fetch": "2.6.7"
   }
